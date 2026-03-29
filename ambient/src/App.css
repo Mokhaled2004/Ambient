@@ -132,3 +132,13 @@
     cursor: none !important;
   }
 }
+
+spline-viewer {
+  /* This hides the "Built with Spline" badge */
+  --logo-display: none !important;
+}
+
+/* Alternative if the variable doesn't work in your version */
+spline-viewer::part(watermark) {
+  display: none !important;
+}

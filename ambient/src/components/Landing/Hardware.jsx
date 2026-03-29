@@ -2,6 +2,7 @@ import React, { Suspense, useLayoutEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { useGLTF, OrbitControls, Html, Center, Stage } from "@react-three/drei";
 import * as THREE from "three";
+import { motion } from "framer-motion";
 
 // Separated Model Component for cleaner logic
 function ESP32Model() {
@@ -53,7 +54,13 @@ export default function Hardware() {
       {/* Title is imported or placed here */}
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
         {/* Visualizer Block */}
-        <div className="w-full lg:w-3/5 h-[400px] md:h-[500px] lg:h-[700px] relative rounded-[2rem] md:rounded-[4rem] bg-[#f9f9f9] border border-black/5 overflow-hidden shadow-2xl shadow-black/5">
+        <motion.div 
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="w-full lg:w-3/5 h-[400px] md:h-[500px] lg:h-[700px] relative rounded-[2rem] md:rounded-[4rem] bg-[#f9f9f9] border border-black/5 overflow-hidden shadow-2xl shadow-black/5"
+        >
           <Canvas
             dpr={[1, 2]}
             camera={{ position: [0, 0, 5], fov: 35 }}
@@ -99,10 +106,16 @@ export default function Hardware() {
               </span>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Functionality Text */}
-        <div className="w-full lg:w-2/5 py-10">
+        <motion.div 
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          className="w-full lg:w-2/5 py-10"
+        >
           <InfoSegment
             title="Core Hardware"
             subtitle="ESP-WROOM-32"
@@ -137,7 +150,7 @@ export default function Hardware() {
               Access Dashboard
             </span>
           </button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
