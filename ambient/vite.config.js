@@ -5,6 +5,8 @@ import path from "path";
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  // This ensures assets are loaded relative to index.html
+  base: "./",
   resolve: {
     alias: {
       // eslint-disable-next-line no-undef
