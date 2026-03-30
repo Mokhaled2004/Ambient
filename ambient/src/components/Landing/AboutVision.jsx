@@ -2,12 +2,12 @@ import { motion } from "framer-motion";
 
 export default function AboutVision() {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-16 md:py-24 bg-white">
       <div className="max-w-[1440px] mx-auto px-4 md:px-8">
         <div className="flex flex-col md:flex-row items-start gap-16 md:gap-24">
           {/* Left Side: Small Label */}
           <div className="w-full md:w-1/4">
-            <div className="sticky top-32">
+            <div className="md:sticky md:top-32 mb-6 md:mb-0">
               <span className="text-[11px] font-black uppercase tracking-[0.5em] text-[#FF6100] border-l-2 border-[#FF6100] pl-4">
                 Origin Story
               </span>
@@ -21,7 +21,7 @@ export default function AboutVision() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="text-3xl md:text-5xl font-black uppercase tracking-tighter leading-[1.1] text-black"
+              className="text-2xl sm:text-3xl md:text-5xl font-black uppercase tracking-tighter leading-[1.2] md:leading-[1.1] text-black break-words"
             >
               We are a team of engineers{" "}
               <span className="text-black/20">
@@ -36,7 +36,7 @@ export default function AboutVision() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-black/5 pt-12"
+              className="mt-10 md:mt-12 grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12 border-t border-black/5 pt-10 md:pt-12"
             >
               <div>
                 <h4 className="text-[10px] font-black uppercase tracking-widest text-[#FF6100] mb-4">

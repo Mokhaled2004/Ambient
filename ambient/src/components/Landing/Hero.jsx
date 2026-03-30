@@ -97,7 +97,7 @@ export default function AmbientCenterHero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative z-50 w-full max-w-[1400px] mx-auto px-4 flex flex-col items-center text-center pointer-events-none"
+        className="relative z-50 w-full max-w-[1400px] mx-auto px-4 sm:px-6 flex flex-col items-center text-center pointer-events-none mt-12 md:mt-0"
       >
         <div className="mb-6 flex items-center gap-3">
           <div className="h-px w-8 bg-black/20" />
@@ -107,7 +107,7 @@ export default function AmbientCenterHero() {
           <div className="h-px w-8 bg-black/20" />
         </div>
 
-        <h1 className="text-6xl sm:text-8xl md:text-[140px] lg:text-[160px] font-black leading-[0.85] tracking-[-0.07em] uppercase mb-10">
+        <h1 className="text-5xl sm:text-7xl md:text-[140px] lg:text-[160px] font-black leading-[0.9] md:leading-[0.85] tracking-tight md:tracking-[-0.07em] uppercase mb-8 md:mb-10 px-2 break-words">
           <span
             className="text-transparent"
             style={{ WebkitTextStroke: "2px #FF6100" }}

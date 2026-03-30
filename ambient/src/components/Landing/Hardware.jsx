@@ -1,4 +1,4 @@
-import React, { Suspense, useLayoutEffect } from "react";
+import React, { Suspense, useLayoutEffect, useState, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { useGLTF, OrbitControls, Html, Center, Stage } from "@react-three/drei";
 import * as THREE from "three";
@@ -35,36 +35,45 @@ function ESP32Model() {
 
 // Separated Info Segment for reusability
 const InfoSegment = ({ title, subtitle, description }) => (
-  <div className="mb-8 md:mb-12 last:mb-0 border-l-2 border-black/5 pl-6 md:pl-8 hover:border-[#FF6100] transition-colors duration-500">
+  <div className="mb-8 md:mb-12 last:mb-0 border-l-2 border-black/5 pl-5 md:pl-8 hover:border-[#FF6100] transition-colors duration-500">
     <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#FF6100] block mb-2">
       {title}
     </span>
-    <h4 className="text-2xl md:text-3xl font-black uppercase tracking-tighter mb-3">
+    <h4 className="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tighter mb-2 md:mb-3 break-words">
       {subtitle}
     </h4>
-    <p className="text-black/50 text-sm max-w-sm leading-relaxed font-medium">
+    <p className="text-black/50 text-sm max-w-full md:max-w-sm leading-relaxed font-medium">
       {description}
     </p>
   </div>
 );
 
 export default function Hardware() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   return (
-    <section className="bg-white text-black min-h-screen pt-12 pb-20 md:pb-32">
+    <section className="bg-white text-black min-h-screen pt-12 pb-20 md:pb-32 overflow-hidden">
       {/* Title is imported or placed here */}
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
         {/* Visualizer Block */}
         <motion.div 
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="w-full lg:w-3/5 h-[400px] md:h-[500px] lg:h-[700px] relative rounded-[2rem] md:rounded-[4rem] bg-[#f9f9f9] border border-black/5 overflow-hidden shadow-2xl shadow-black/5"
+          className="w-full lg:w-3/5 h-[350px] sm:h-[400px] md:h-[500px] lg:h-[700px] relative rounded-[2rem] md:rounded-[4rem] bg-[#f9f9f9] border border-black/5 overflow-hidden shadow-2xl shadow-black/5"
         >
           <Canvas
-            dpr={[1, 2]}
+            dpr={isMobile ? [1, 1] : [1, 2]}
             camera={{ position: [0, 0, 5], fov: 35 }}
-            gl={{ antialias: true, toneMapping: THREE.NoToneMapping }}
+            gl={{ antialias: !isMobile, toneMapping: THREE.NoToneMapping, powerPreference: "default" }}
           >
             <ambientLight intensity={0.4} />
             <directionalLight position={[10, 10, 5]} intensity={1} />
@@ -89,7 +98,7 @@ export default function Hardware() {
             <OrbitControls
               enableZoom={true}
               enablePan={false}
-              autoRotate
+              autoRotate={!isMobile}
               autoRotateSpeed={0.8}
             />
           </Canvas>
@@ -110,11 +119,11 @@ export default function Hardware() {
 
         {/* Functionality Text */}
         <motion.div 
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          className="w-full lg:w-2/5 py-10"
+          transition={{ duration: 0.8, ease: "easeOut", delay: isMobile ? 0 : 0.2 }}
+          className="w-full lg:w-2/5 py-6 md:py-10"
         >
           <InfoSegment
             title="Core Hardware"

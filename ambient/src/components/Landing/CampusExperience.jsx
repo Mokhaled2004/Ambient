@@ -26,7 +26,7 @@ export default function CampusExperience() {
   return (
     <section
       id="features"
-      className="pt-20 md:pt-32 pb-16 bg-white overflow-hidden flex flex-col items-center"
+      className="pt-16 md:pt-32 pb-16 bg-white overflow-hidden flex flex-col items-center"
     >
       <div className="max-w-[1440px] mx-auto px-6 md:px-8 w-full">
         {/* Section Header */}
@@ -35,19 +35,19 @@ export default function CampusExperience() {
             <motion.span className="text-[10px] md:text-[11px] font-black uppercase tracking-[0.5em] text-[#FF6100] block mb-4">
               The Experience
             </motion.span>
-            <motion.h2 className="text-4xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.9] md:leading-[0.85]">
+            <motion.h2 className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[1] md:leading-[0.85] break-words">
               Beyond the <br />{" "}
               <span className="text-black/10">Physical Space.</span>
             </motion.h2>
           </div>
-          <p className="text-black/50 text-sm md:text-base font-medium max-w-sm leading-relaxed">
+          <p className="text-black/50 text-sm md:text-base font-medium max-w-full md:max-w-sm leading-relaxed mt-4 md:mt-0">
             We've built a digital nervous system for the campus, making everyday
             navigation and interaction completely frictionless.
           </p>
         </div>
 
         {/* Feature Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-24 md:gap-12 mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-16 md:gap-12 mb-20">
           {features.map((feature, idx) => (
             <motion.div
               key={idx}
@@ -64,7 +64,7 @@ export default function CampusExperience() {
               {/* THE NUMBER & FLOATING ICON */}
               <div className="relative mb-6 inline-block">
                 {/* GHOST NUMBER */}
-                <span className="text-7xl md:text-8xl font-black text-black/[0.04] select-none italic tracking-tighter leading-none block group-hover:text-[#FF6100]/[0.08] transition-colors duration-700">
+                <span className="text-6xl sm:text-7xl md:text-8xl font-black text-black/[0.04] select-none italic tracking-tighter leading-none block group-hover:text-[#FF6100]/[0.08] transition-colors duration-700">
                   0{idx + 1}
                 </span>
 
@@ -79,7 +79,7 @@ export default function CampusExperience() {
                 <h3 className="text-xl md:text-2xl font-black uppercase tracking-tight group-hover:text-[#FF6100] transition-colors">
                   {feature.title}
                 </h3>
-                <p className="text-black/60 text-sm md:text-base font-medium leading-relaxed max-w-[280px]">
+                <p className="text-black/60 text-sm md:text-base font-medium leading-relaxed max-w-full md:max-w-[280px]">
                   {feature.desc}
                 </p>
               </div>
