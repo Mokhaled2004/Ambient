@@ -28,7 +28,7 @@ const adminSpecs = [
 
 export default function AdminSection() {
   return (
-    <section id="admin-product" className="py-24 bg-white overflow-hidden">
+    <section id="admin-product" className="py-16 md:py-24 bg-white overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6 md:px-8">
         {/* Section Header */}
         <div className="relative mb-20">
@@ -40,7 +40,7 @@ export default function AdminSection() {
           >
             Product 02
           </motion.span>
-          <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter leading-none">
+          <h2 className="text-4xl sm:text-5xl md:text-8xl font-black uppercase tracking-tighter leading-[0.9] md:leading-none break-words">
             Admin <br />
             <span className="text-black/10">Dashboard.</span>
           </h2>
@@ -88,7 +88,7 @@ export default function AdminSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.15, duration: 0.8 }}
-                className="group flex flex-col items-start border-l-2 border-black/5 pl-8 hover:border-[#FF6100] transition-colors duration-500"
+                className="group flex flex-col items-start border-l-2 border-black/5 pl-6 md:pl-8 hover:border-[#FF6100] transition-colors duration-500"
               >
                 <div className="flex items-center gap-3 mb-2">
                   <span className="text-[10px] font-black uppercase tracking-widest text-[#FF6100]">

@@ -18,15 +18,15 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-white border-t border-black/[0.05] pt-20 pb-10">
+    <footer className="bg-white border-t border-black/[0.05] pt-16 md:pt-20 pb-8 md:pb-10">
       <div className="max-w-[1440px] mx-auto px-6 md:px-8 w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 md:gap-12 lg:gap-8 mb-16 md:mb-20">
           <div className="lg:col-span-2 space-y-6">
             <div className="flex items-center gap-2">
               <div className="h-6 w-6 bg-[#FF6100] rounded-sm flex items-center justify-center">
                 <div className="h-2 w-2 bg-white rounded-full animate-pulse" />
               </div>
-              <span className="text-xl font-black uppercase tracking-tighter">
+              <span className="text-lg md:text-xl font-black uppercase tracking-tighter">
                 Ambient<span className="text-[#FF6100]">.</span>
               </span>
             </div>

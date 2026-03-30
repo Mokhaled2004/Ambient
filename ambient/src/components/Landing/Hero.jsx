@@ -99,12 +99,12 @@ export default function AmbientCenterHero() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="relative z-50 w-full max-w-[1400px] mx-auto px-4 sm:px-6 flex flex-col items-center text-center pointer-events-none mt-12 md:mt-0"
       >
-        <div className="mb-6 flex items-center gap-3">
-          <div className="h-px w-8 bg-black/20" />
-          <span className="text-[11px] font-black uppercase tracking-[0.5em] text-black">
+        <div className="mb-6 flex items-center justify-center gap-2 sm:gap-3 w-full px-4">
+          <div className="h-px w-4 sm:w-8 bg-black/20 flex-shrink-0" />
+          <span className="text-[9px] sm:text-[11px] font-black uppercase tracking-[0.3em] sm:tracking-[0.5em] text-black text-center -mr-[0.3em] sm:-mr-[0.5em]">
             Welcome to Ambient
           </span>
-          <div className="h-px w-8 bg-black/20" />
+          <div className="h-px w-4 sm:w-8 bg-black/20 flex-shrink-0" />
         </div>
 
         <h1 className="text-5xl sm:text-7xl md:text-[140px] lg:text-[160px] font-black leading-[0.9] md:leading-[0.85] tracking-tight md:tracking-[-0.07em] uppercase mb-8 md:mb-10 px-2 break-words">

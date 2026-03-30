@@ -38,9 +38,9 @@ export default function Header() {
       }}
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
-      className="fixed top-0 w-full z-[100] py-6"
+      className="fixed top-0 inset-x-0 z-[100] py-4 md:py-6"
     >
-      <div className="max-w-[1440px] mx-auto px-8 md:px-12 flex items-center justify-between">
+      <div className="max-w-[1440px] w-full mx-auto px-4 sm:px-8 md:px-12 flex items-center justify-between">
         {/* 1. LOGO (Excluded from center border) */}
         <div className="flex-1 flex justify-start">
           <div className="cursor-pointer group">
@@ -78,7 +78,7 @@ export default function Header() {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden p-2 text-black"
+          className="md:hidden p-2 -mr-2 text-black"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}

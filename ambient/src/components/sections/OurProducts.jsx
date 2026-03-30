@@ -38,7 +38,7 @@ export default function OurProducts() {
   return (
     <section
       id="products"
-      className="pt-20 md:pt-32 pb-20 bg-white overflow-hidden flex flex-col items-center"
+      className="pt-16 md:pt-32 pb-16 md:pb-20 bg-white overflow-hidden flex flex-col items-center"
     >
       <div className="max-w-[1440px] mx-auto px-6 md:px-8 w-full relative">
         <SectionHeader
@@ -49,7 +49,7 @@ export default function OurProducts() {
         />
 
         {/* Modern Glass Grid */}
-        <div className="mb-20 mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="mb-16 md:mb-20 mt-12 md:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {products.map((product) => (
             <motion.div
               key={product.id}
@@ -57,7 +57,7 @@ export default function OurProducts() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               whileHover={{ y: -10 }} // Elevated interaction
-              className="relative p-8 md:p-10 border border-black/5 flex flex-col gap-6 group rounded-[3rem] overflow-hidden transition-all duration-300 backdrop-blur-sm bg-white/50" // Glass base
+              className="relative p-6 sm:p-8 md:p-10 border border-black/5 flex flex-col gap-6 group rounded-[2rem] md:rounded-[3rem] overflow-hidden transition-all duration-300 backdrop-blur-sm bg-white/50" // Glass base
             >
               {/* Animated Glow */}
               <motion.div
@@ -73,12 +73,12 @@ export default function OurProducts() {
                     {product.tag}
                   </span>
                 </div>
-                <h3 className="text-4xl md:text-5xl font-black tracking-tighter italic leading-none uppercase group-hover:text-[#FF6100] transition-colors">
+                <h3 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter italic leading-none uppercase group-hover:text-[#FF6100] transition-colors break-words">
                   {product.title}
                 </h3>
               </div>
 
-              <p className="relative text-black/50 text-[11px] md:text-[12px] font-bold uppercase tracking-widest leading-relaxed z-10">
+              <p className="relative text-black/50 text-[10px] sm:text-[11px] md:text-[12px] font-bold uppercase tracking-widest leading-relaxed z-10 max-w-full">
                 {product.desc}
               </p>
 
