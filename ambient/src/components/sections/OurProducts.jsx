@@ -38,7 +38,8 @@ export default function OurProducts() {
   return (
     <section
       id="products"
-      className="pt-16 md:pt-32 pb-16 md:pb-20 bg-white overflow-hidden flex flex-col items-center"
+      // Removed bg-white, added relative, z-10, and text-white
+      className="relative z-10 pt-16 md:pt-32 pb-16 md:pb-20 text-white overflow-hidden flex flex-col items-center"
     >
       <div className="max-w-[1440px] mx-auto px-6 md:px-8 w-full relative">
         <SectionHeader
@@ -56,12 +57,13 @@ export default function OurProducts() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              whileHover={{ y: -10 }} // Elevated interaction
-              className="relative p-6 sm:p-8 md:p-10 border border-black/5 flex flex-col gap-6 group rounded-[2rem] md:rounded-[3rem] overflow-hidden transition-all duration-300 backdrop-blur-sm bg-white/50" // Glass base
+              whileHover={{ y: -10 }}
+              // Remapped background to premium alpha glass and border to white/10
+              className="relative p-6 sm:p-8 md:p-10 border border-white/10 flex flex-col gap-6 group rounded-[2rem] md:rounded-[3rem] overflow-hidden transition-all duration-300 backdrop-blur-md bg-white/5"
             >
-              {/* Animated Glow */}
+              {/* Animated Glow - slightly increased opacity for dark background depth */}
               <motion.div
-                className="absolute inset-0 bg-[#FF6100]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-[3rem] blur-xl"
+                className="absolute inset-0 bg-[#FF6100]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-[3rem] blur-xl"
                 animate={{ scale: [1, 1.2, 1], opacity: [0, 0.2, 0] }}
                 transition={{ duration: 4, repeat: Infinity }}
               />
@@ -73,17 +75,18 @@ export default function OurProducts() {
                     {product.tag}
                   </span>
                 </div>
-                <h3 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter italic leading-none uppercase group-hover:text-[#FF6100] transition-colors break-words">
+                <h3 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter italic leading-none uppercase text-white group-hover:text-[#FF6100] transition-colors break-words">
                   {product.title}
                 </h3>
               </div>
 
-              <p className="relative text-black/50 text-[10px] sm:text-[11px] md:text-[12px] font-bold uppercase tracking-widest leading-relaxed z-10 max-w-full">
+              {/* Swapped text-black/50 to text-zinc-400 */}
+              <p className="relative text-[#FF6100] text-[10px] sm:text-[11px] md:text-[12px] font-bold uppercase tracking-widest leading-relaxed z-10 max-w-full">
                 {product.desc}
               </p>
 
-              {/* Modern ID Tag */}
-              <div className="absolute top-6 right-8 text-[9px] md:text-[10px] font-black text-black/10 z-10 bg-white px-2 py-0.5 rounded-full border border-black/5">
+              {/* Modern ID Tag - Refactored color configurations */}
+              <div className="absolute top-6 right-8 text-[9px] md:text-[10px] font-black text-white/30 z-10 bg-white/10 px-2 py-0.5 rounded-full border border-white/10 backdrop-blur-sm">
                 P_{product.id}
               </div>
             </motion.div>
@@ -98,7 +101,7 @@ export default function OurProducts() {
           whileInView={{ width: "100%", maxWidth: "680px", opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: "circOut" }}
-          className="bg-[#FF6100] rounded-full shadow-[0_4px_20px_rgba(255,97,0,0.3)]
+          className="bg-[#FF6100] rounded-full shadow-[0_4px_20px_rgba(255,97,0,0.5)]
                      h-[3px] md:h-[6px] 
                      w-[180px] md:w-[680px]"
         />

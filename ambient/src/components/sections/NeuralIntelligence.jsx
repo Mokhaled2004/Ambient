@@ -28,7 +28,8 @@ export default function NeuralIntelligence() {
   return (
     <section
       id="neural"
-      className="pt-16 md:pt-32 pb-16 md:pb-20 bg-white overflow-hidden flex flex-col items-center"
+      // Removed bg-white, added relative, z-10, and text-white
+      className="relative z-10 pt-16 md:pt-32 pb-16 md:pb-20 text-white overflow-hidden flex flex-col items-center"
     >
       <div className="max-w-[1440px] mx-auto px-6 md:px-8 w-full">
         <SectionHeader
@@ -38,8 +39,8 @@ export default function NeuralIntelligence() {
           description="A custom deep learning architecture that filters environmental noise in real-time, predicting movement with sub-meter accuracy."
         />
 
-        {/* Metric Grid */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-0 border-y border-black/5">
+        {/* Metric Grid - Updated borders to white alpha */}
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-0 border-y border-white/10">
           {metrics.map((m, i) => (
             <motion.div
               key={i}
@@ -48,7 +49,7 @@ export default function NeuralIntelligence() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
               className={`flex flex-col items-center text-center p-10 sm:p-12 md:p-16 group transition-colors duration-500
-                ${i !== metrics.length - 1 ? "border-b md:border-b-0 md:border-r border-black/5" : ""}`}
+                ${i !== metrics.length - 1 ? "border-b md:border-b-0 md:border-r border-white/10" : ""}`}
             >
               <div className="flex flex-col items-center gap-4">
                 <div className="flex items-center gap-2 text-[#FF6100]">
@@ -57,10 +58,11 @@ export default function NeuralIntelligence() {
                     {m.tag}
                   </span>
                 </div>
-                <h3 className="text-5xl sm:text-6xl md:text-8xl font-black tracking-tighter italic leading-none uppercase group-hover:text-[#FF6100] transition-colors duration-500 px-2 break-words">
+                {/* Updated text color handling for high contrast on dark grids */}
+                <h3 className="text-5xl sm:text-6xl md:text-8xl font-black tracking-tighter italic leading-none uppercase text-white group-hover:text-[#FF6100] transition-colors duration-500 px-2 break-words">
                   {m.value}
                 </h3>
-                <p className="text-black/40 text-[9px] sm:text-[10px] md:text-[12px] font-bold uppercase tracking-widest leading-relaxed max-w-[180px] sm:max-w-[200px]">
+                <p className="text-[#FF6100] text-[9px] sm:text-[10px] md:text-[12px] font-bold uppercase tracking-widest leading-relaxed max-w-[180px] sm:max-w-[200px]">
                   {m.desc}
                 </p>
               </div>
@@ -68,16 +70,16 @@ export default function NeuralIntelligence() {
           ))}
         </div>
 
-        {/* RESTORED: Concept Highlights (Modern Minimalist style) */}
+        {/* Concept Highlights */}
         <div className="mt-16 md:mt-20 mb-16 md:mb-24 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
           <motion.div
             whileHover={{ x: 10 }}
             className="flex flex-col gap-4 pl-6 border-l-2 border-[#FF6100]/20 hover:border-[#FF6100] transition-colors duration-500"
           >
-            <h4 className="text-xl font-black uppercase tracking-tighter">
+            <h4 className="text-xl font-black uppercase tracking-tighter text-white">
               Environmental Awareness
             </h4>
-            <p className="text-black/50 text-sm md:text-base font-medium leading-relaxed max-w-full md:max-w-md">
+            <p className="text-[#FF6100] text-sm md:text-base font-medium leading-relaxed max-w-full md:max-w-md">
               The model identifies and ignores signal interference caused by
               walls and infrastructure, ensuring smooth floor-to-floor
               transitions.
@@ -88,10 +90,10 @@ export default function NeuralIntelligence() {
             whileHover={{ x: 10 }}
             className="flex flex-col gap-4 pl-6 border-l-2 border-[#FF6100]/20 hover:border-[#FF6100] transition-colors duration-500"
           >
-            <h4 className="text-xl font-black uppercase tracking-tighter">
+            <h4 className="text-xl font-black uppercase tracking-tighter text-white">
               Active Learning
             </h4>
-            <p className="text-black/50 text-sm md:text-base font-medium leading-relaxed max-w-full md:max-w-md">
+            <p className="text-[#FF6100] text-sm md:text-base font-medium leading-relaxed max-w-full md:max-w-md">
               By analyzing real-time movement data, the engine constantly
               updates its spatial understanding of the campus environment.
             </p>
@@ -106,7 +108,7 @@ export default function NeuralIntelligence() {
           whileInView={{ width: "100%", maxWidth: "680px", opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: "circOut" }}
-          className="bg-[#FF6100] rounded-full shadow-[0_4px_20px_rgba(255,97,0,0.3)]
+          className="bg-[#FF6100] rounded-full shadow-[0_4px_20px_rgba(255,97,0,0.5)]
                      h-[2px] md:h-[6px] 
                      w-[140px] md:w-[680px]"
         />

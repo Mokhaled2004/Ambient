@@ -8,7 +8,8 @@ export default function SectionHeader({
   description,
 }) {
   return (
-    <section className="w-full bg-white pt-12 md:pt-16 pb-12 md:pb-20">
+    // Removed bg-white, added relative, z-10, and text-white
+    <section className="relative z-10 w-full pt-12 md:pt-16 pb-12 md:pb-20 text-white">
       <div className="max-w-[1440px] mx-auto px-4 md:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-12">
           {/* Left Column: Titles */}
@@ -26,10 +27,12 @@ export default function SectionHeader({
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.9] md:leading-[0.85] break-words"
+              className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black uppercase trackinh
+              -tighter leading-[0.9] md:leading-[0.85] break-words text-white"
             >
               {mainTitle} <br />
-              <span className="text-black/10">{ghostTitle}.</span>
+              {/* Swapped text-black/10 to white alpha so it floats correctly */}
+              <span className="text-[#FF6100]">{ghostTitle}.</span>
             </motion.h2>
           </div>
 
@@ -41,7 +44,8 @@ export default function SectionHeader({
             transition={{ delay: 0.3 }}
             className="md:pb-4"
           >
-            <p className="text-black/50 font-medium max-w-full md:max-w-sm leading-relaxed text-[14px] md:text-[15px]">
+            {/* Swapped text-black/50 to premium text-zinc-400 */}
+            <p className="text-[#FF6100] font-medium max-w-full md:max-w-sm leading-relaxed text-[14px] md:text-[15px]">
               {description}
             </p>
           </motion.div>

@@ -1,3 +1,4 @@
+import React from "react";
 import { motion } from "framer-motion";
 import { MapPin, Bot, Activity } from "lucide-react";
 
@@ -26,7 +27,8 @@ export default function CampusExperience() {
   return (
     <section
       id="features"
-      className="pt-16 md:pt-32 pb-16 bg-white overflow-hidden flex flex-col items-center"
+      // Removed bg-white, added relative, z-10, and text-white
+      className="relative z-10 pt-16 md:pt-32 pb-16 text-white overflow-hidden flex flex-col items-center"
     >
       <div className="max-w-[1440px] mx-auto px-6 md:px-8 w-full">
         {/* Section Header */}
@@ -35,12 +37,12 @@ export default function CampusExperience() {
             <motion.span className="text-[10px] md:text-[11px] font-black uppercase tracking-[0.5em] text-[#FF6100] block mb-4">
               The Experience
             </motion.span>
-            <motion.h2 className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[1] md:leading-[0.85] break-words">
+            <motion.h2 className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[1] md:leading-[0.85] break-words text-white">
               Beyond the <br />{" "}
-              <span className="text-black/10">Physical Space.</span>
+              <span className="text-[#FF6100]">Physical Space.</span>
             </motion.h2>
           </div>
-          <p className="text-black/50 text-sm md:text-base font-medium max-w-full md:max-w-sm leading-relaxed mt-4 md:mt-0">
+          <p className="text-[#FF6100] text-sm md:text-base font-medium max-w-full md:max-w-sm leading-relaxed mt-4 md:mt-0">
             We've built a digital nervous system for the campus, making everyday
             navigation and interaction completely frictionless.
           </p>
@@ -63,12 +65,12 @@ export default function CampusExperience() {
             >
               {/* THE NUMBER & FLOATING ICON */}
               <div className="relative mb-6 inline-block">
-                {/* GHOST NUMBER */}
-                <span className="text-6xl sm:text-7xl md:text-8xl font-black text-black/[0.04] select-none italic tracking-tighter leading-none block group-hover:text-[#FF6100]/[0.08] transition-colors duration-700">
+                {/* GHOST NUMBER - Shifted to white alpha for deep contrast */}
+                <span className="text-6xl sm:text-7xl md:text-8xl font-black text-[#FF6100] select-none italic tracking-tighter leading-none block group-hover:text-[#FF6100]/[0.12] transition-colors duration-700">
                   0{idx + 1}
                 </span>
 
-                {/* PURE ICON: No background, no borders, docked to the bottom right of the number */}
+                {/* PURE ICON */}
                 <div className="absolute bottom-0 right-0 transform translate-x-1/4 translate-y-1/4 z-10 transition-transform duration-500 group-hover:scale-125 group-hover:-rotate-12">
                   {feature.icon}
                 </div>
@@ -76,20 +78,20 @@ export default function CampusExperience() {
 
               {/* CONTENT */}
               <div className="space-y-4">
-                <h3 className="text-xl md:text-2xl font-black uppercase tracking-tight group-hover:text-[#FF6100] transition-colors">
+                <h3 className="text-xl md:text-2xl font-black uppercase tracking-tight text-white group-hover:text-[#FF6100] transition-colors">
                   {feature.title}
                 </h3>
-                <p className="text-black/60 text-sm md:text-base font-medium leading-relaxed max-w-full md:max-w-[280px]">
+                <p className="text-[#FF6100] text-sm md:text-base font-medium leading-relaxed max-w-full md:max-w-[280px]">
                   {feature.desc}
                 </p>
               </div>
 
-              {/* TECHNICAL FOOTER */}
-              <div className="mt-8 pt-6 w-full border-t border-black/5 flex items-center justify-between opacity-40 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <span className="text-[9px] font-black uppercase tracking-widest text-black/40">
+              {/* TECHNICAL FOOTER - Updated border and text colors */}
+              <div className="mt-8 pt-6 w-full border-t border-white/10 flex items-center justify-between opacity-40 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <span className="text-[9px] font-black uppercase tracking-widest text-[#FF6100]">
                   Ambient Module v4.0
                 </span>
-                <div className="h-1.5 w-1.5 rounded-full bg-[#FF6100] animate-pulse" />
+                <div className="h-1.5 w-1.5 rounded-full bg-[#FF6100] animate-pulse shadow-[0_0_8px_#FF6100]" />
               </div>
             </motion.div>
           ))}
@@ -103,7 +105,7 @@ export default function CampusExperience() {
           whileInView={{ width: "100%", maxWidth: "680px" }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="h-[2px] md:h-[6px] bg-[#FF6100] rounded-full shadow-[0_4px_20px_rgba(255,97,0,0.3)] w-[140px] md:w-[680px]"
+          className="h-[2px] md:h-[6px] bg-[#FF6100] rounded-full shadow-[0_4px_20px_rgba(255,97,0,0.5)] w-[140px] md:w-[680px]"
         />
       </div>
     </section>

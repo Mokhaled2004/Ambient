@@ -1,11 +1,11 @@
+import React from "react";
 import { motion } from "framer-motion";
-// Swapping brand icons for technical ones to ensure the build passes
-import { Globe, Mail, Cpu, Shield, Terminal, ExternalLink } from "lucide-react";
+import { Globe, Mail, Cpu, Terminal } from "lucide-react";
+import LogoImg from "@/assets/AmbientLogo.png";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
-  // Defined links to fix the "links is not defined" error in your previous snippet
   const links = {
     Product: ["Mobile App", "Admin Dashboard", "Map Studio"],
     Resources: ["Documentation", "Hardware Specs", "API Reference"],
@@ -18,19 +18,23 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-white border-t border-black/[0.05] pt-16 md:pt-20 pb-8 md:pb-10">
+    <footer
+      // Removed bg-white, added relative, z-10, text-white, and converted border to white/10 alpha
+      className="relative z-10 border-t border-white/10 pt-16 md:pt-20 pb-8 md:pb-10 text-white"
+    >
       <div className="max-w-[1440px] mx-auto px-6 md:px-8 w-full">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 md:gap-12 lg:gap-8 mb-16 md:mb-20">
           <div className="lg:col-span-2 space-y-6">
             <div className="flex items-center gap-2">
-              <div className="h-6 w-6 bg-[#FF6100] rounded-sm flex items-center justify-center">
-                <div className="h-2 w-2 bg-white rounded-full animate-pulse" />
-              </div>
-              <span className="text-lg md:text-xl font-black uppercase tracking-tighter">
-                Ambient<span className="text-[#FF6100]">.</span>
-              </span>
+              <img
+                src={LogoImg}
+                alt="Ambient Logo"
+                className="h-6 md:h-8 w-auto object-contain"
+              />
+
             </div>
-            <p className="text-black/50 text-sm leading-relaxed max-w-xs font-medium">
+            {/* Swapped text-black/50 to responsive text-zinc-400 */}
+            <p className="text-[#FF6100] text-sm leading-relaxed max-w-xs font-medium">
               Architecting the digital nervous system for the modern campus.
               Spatial intelligence meets seamless navigation.
             </p>
@@ -40,7 +44,8 @@ export default function Footer() {
                 <a
                   key={i}
                   href={social.href}
-                  className="p-2 border border-black/5 rounded-lg hover:border-[#FF6100] hover:text-[#FF6100] transition-all"
+                  // Remapped border and icon color mechanics to fit premium dark theme scales
+                  className="p-2 border border-white/10 text-[#FF6100] rounded-lg hover:border-[#FF6100] hover:text-[#FF6100] transition-all duration-300"
                 >
                   {social.Icon && <social.Icon size={18} />}
                 </a>
@@ -50,7 +55,8 @@ export default function Footer() {
 
           {Object.entries(links).map(([title, items]) => (
             <div key={title} className="space-y-6">
-              <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-black/30">
+              {/* Swapped header tracking weights to white alpha */}
+              <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-white/30">
                 {title}
               </h4>
               <ul className="space-y-4">
@@ -58,7 +64,8 @@ export default function Footer() {
                   <li key={item}>
                     <a
                       href="#"
-                      className="text-sm font-bold text-black/60 hover:text-[#FF6100] transition-colors"
+                      // Swapped link list states to zinc typography frameworks
+                      className="text-sm font-bold text-[#FF6100] hover:text-[#FF6100] transition-colors duration-300"
                     >
                       {item}
                     </a>
@@ -69,24 +76,25 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="pt-10 border-t border-black/[0.03] flex flex-col md:flex-row justify-between items-center gap-6">
+        {/* Upgraded bottom separator to white/10 grid alpha */}
+        <div className="pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex flex-wrap justify-center md:justify-start gap-8 items-center">
             <div className="flex items-center gap-2">
-              <Globe size={14} className="text-black/20" />
-              <span className="text-[10px] font-bold uppercase tracking-widest text-black/40">
+              <Globe size={14} className="text-white/20" />
+              <span className="text-[10px] font-bold uppercase tracking-widest text-[#FF6100]">
                 Cairo, EG // 30.0444° N, 31.2357° E
               </span>
             </div>
-            <span className="text-[10px] font-bold uppercase tracking-widest text-black/20">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-white/20">
               Build: v4.0.2-stable
             </span>
           </div>
 
           <div className="flex items-center gap-4">
-            <span className="text-[9px] font-black uppercase tracking-[0.2em] text-[#FF6100]/60">
+            <span className="text-[9px] font-black uppercase tracking-[0.2em] text-[#FF6100]/80">
               System Status: Nominal
             </span>
-            <div className="h-1.5 w-1.5 rounded-full bg-[#FF6100] shadow-[0_0_8px_rgba(255,97,0,0.4)]" />
+            <div className="h-1.5 w-1.5 rounded-full bg-[#FF6100] shadow-[0_0_8px_#FF6100]" />
           </div>
         </div>
       </div>

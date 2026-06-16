@@ -33,16 +33,16 @@ function ESP32Model() {
   );
 }
 
-// Separated Info Segment for reusability
+// Separated Info Segment for reusability (Updated for Dark Theme)
 const InfoSegment = ({ title, subtitle, description }) => (
-  <div className="mb-8 md:mb-12 last:mb-0 border-l-2 border-black/5 pl-5 md:pl-8 hover:border-[#FF6100] transition-colors duration-500">
+  <div className="mb-8 md:mb-12 last:mb-0 border-l-2 border-white/10 pl-5 md:pl-8 hover:border-[#FF6100] transition-colors duration-500">
     <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#FF6100] block mb-2">
       {title}
     </span>
-    <h4 className="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tighter mb-2 md:mb-3 break-words">
+    <h4 className="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tighter mb-2 md:mb-3 break-words text-white">
       {subtitle}
     </h4>
-    <p className="text-black/50 text-sm max-w-full md:max-w-sm leading-relaxed font-medium">
+    <p className="text-[#FF6100] text-sm max-w-full md:max-w-sm leading-relaxed font-medium">
       {description}
     </p>
   </div>
@@ -59,28 +59,31 @@ export default function Hardware() {
   }, []);
 
   return (
-    <section className="bg-white text-black min-h-screen pt-12 pb-20 md:pb-32 overflow-hidden">
-      {/* Title is imported or placed here */}
+    // Removed bg-white and text-black, added relative and z-10
+    <section className="relative z-10 text-white min-h-screen pt-12 pb-20 md:pb-32 overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
+
         {/* Visualizer Block */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="w-full lg:w-3/5 h-[350px] sm:h-[400px] md:h-[500px] lg:h-[700px] relative rounded-[2rem] md:rounded-[4rem] bg-[#f9f9f9] border border-black/5 overflow-hidden shadow-2xl shadow-black/5"
+          // Updated container to a glassmorphism effect (transparent with blur)
+          className="w-full lg:w-3/5 h-[350px] sm:h-[400px] md:h-[500px] lg:h-[700px] relative rounded-[2rem] md:rounded-[4rem] bg-white/5 backdrop-blur-md border border-white/10 overflow-hidden shadow-2xl shadow-black/50"
         >
           <Canvas
             dpr={isMobile ? [1, 1] : [1, 2]}
             camera={{ position: [0, 0, 5], fov: 35 }}
             gl={{ antialias: !isMobile, toneMapping: THREE.NoToneMapping, powerPreference: "default" }}
           >
-            <ambientLight intensity={0.4} />
-            <directionalLight position={[10, 10, 5]} intensity={1} />
+            {/* Boosted lighting slightly since the background is now dark */}
+            <ambientLight intensity={0.8} />
+            <directionalLight position={[10, 10, 5]} intensity={1.5} />
 
             <Suspense
               fallback={
-                <Html center className="font-bold text-[#FF6100]">
+                <Html center className="font-bold text-[#FF6100] whitespace-nowrap">
                   SYNCING NODE...
                 </Html>
               }
@@ -105,12 +108,12 @@ export default function Hardware() {
 
           {/* Real-time Status Overlays */}
           <div className="absolute top-6 left-6 md:top-12 md:left-12 pointer-events-none">
-            <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tighter leading-none mb-2">
+            <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tighter leading-none mb-2 text-white shadow-black drop-shadow-md">
               Active Mesh
             </h2>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-[#FF6100] animate-ping" />
-              <span className="text-[8px] md:text-[10px] font-black uppercase tracking-widest opacity-40">
+              <div className="w-2 h-2 rounded-full bg-[#FF6100] animate-ping shadow-[0_0_8px_#FF6100]" />
+              <span className="text-[8px] md:text-[10px] font-black uppercase tracking-widest text-[#FF6100]">
                 Node_0x1F2
               </span>
             </div>
@@ -118,7 +121,7 @@ export default function Hardware() {
         </motion.div>
 
         {/* Functionality Text */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
@@ -144,7 +147,7 @@ export default function Hardware() {
           />
 
           <button className="group mt-4 flex items-center gap-6">
-            <div className="h-14 w-14 rounded-full bg-black flex items-center justify-center text-white group-hover:bg-[#FF6100] transition-all">
+            <div className="h-14 w-14 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm flex items-center justify-center text-white group-hover:bg-[#FF6100] group-hover:border-[#FF6100] transition-all shadow-[0_0_15px_rgba(0,0,0,0.5)]">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                 <path
                   d="M5 10H15M15 10L11 6M15 10L11 14"
@@ -155,7 +158,7 @@ export default function Hardware() {
                 />
               </svg>
             </div>
-            <span className="font-black uppercase text-xs tracking-widest">
+            <span className="font-black uppercase text-xs tracking-widest text-[#FF6100] group-hover:text-white transition-colors">
               Access Dashboard
             </span>
           </button>

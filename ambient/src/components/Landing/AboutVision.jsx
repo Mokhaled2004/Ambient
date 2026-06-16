@@ -2,7 +2,8 @@ import { motion } from "framer-motion";
 
 export default function AboutVision() {
   return (
-    <section className="py-16 md:py-24 bg-white">
+    // Removed the gradient background to make it completely transparent
+    <section className="py-16 md:py-24 relative z-10">
       <div className="max-w-[1440px] mx-auto px-4 md:px-8">
         <div className="flex flex-col md:flex-row items-start gap-16 md:gap-24">
           {/* Left Side: Small Label */}
@@ -21,10 +22,10 @@ export default function AboutVision() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="text-2xl sm:text-3xl md:text-5xl font-black uppercase tracking-tighter leading-[1.2] md:leading-[1.1] text-black break-words"
+              className="text-2xl sm:text-3xl md:text-5xl font-black uppercase tracking-tighter leading-[1.2] md:leading-[1.1] text-white break-words"
             >
               We are a team of engineers{" "}
-              <span className="text-black/20">
+              <span className="text-[#FF6100]">
                 reimagining how humans interact with physical environments.
               </span>{" "}
               Ambient started as a graduation project with a simple goal: to
@@ -36,13 +37,13 @@ export default function AboutVision() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="mt-10 md:mt-12 grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12 border-t border-black/5 pt-10 md:pt-12"
+              className="mt-10 md:mt-12 grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12 border-t border-white/10 pt-10 md:pt-12"
             >
               <div>
                 <h4 className="text-[10px] font-black uppercase tracking-widest text-[#FF6100] mb-4">
                   Our Vision
                 </h4>
-                <p className="text-black/50 font-medium leading-relaxed">
+                <p className="text-zinc-400 font-medium leading-relaxed">
                   To eliminate the friction of complex indoor environments
                   through a unified spatial layer that lives in the background
                   of your daily life.
@@ -52,7 +53,7 @@ export default function AboutVision() {
                 <h4 className="text-[10px] font-black uppercase tracking-widest text-[#FF6100] mb-4">
                   The Team
                 </h4>
-                <p className="text-black/50 font-medium leading-relaxed">
+                <p className="text-zinc-400 font-medium leading-relaxed">
                   Driven by AI, IoT, and high-precision spatial data, we bridge
                   the gap between hardware and human experience.
                 </p>
